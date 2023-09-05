@@ -1,48 +1,56 @@
 ## Developed by:D.SWATHI
 ## RegisterNumber: 212222230154
 # Experiment-02 Implementation of combinational logic
-Implementation of combinational logic gates
- ## AIM:
-To implement the given logic function verify its operation in Quartus using Verilog programming.
- F1= A’B’C’D’+AC’D’+B’CD’+A’BCD+BC’D
-F2=xy’z+x’y’z+w’xy+wx’y+wxy
+## AIM
+To design a half adder and full adder circuit and verify its truth table in Quartus using Verilog programming.
+
 ## Equipments Required
-Hardware – PCs, Cyclone II , USB flasher
-## Hardware – PCs, Cyclone II , USB flasher
-## Software – Quartus prime
+Hardware – PCs, Cyclone II , USB flasher Software – Quartus prime
+
 ## Theory
-Logic gates are electronic circuits which perform logical functions on one or more inputs to produce one output. ###Using NAND gates NAND gate is actually a combination of two logic gates i.e. AND gate followed by NOT gate. So its output is complement of the output of an AND gate.This gate can have minimum two inputs, output is always one. By using only NAND gates, we can realize all logic functions: AND, OR, NOT, X-OR, X-NOR, NOR. So this gate is also called as universal gate. First note that the entire expression is inverted and we have three terms ANDed. This means that we must use a 3-input NAND gate. Each of the three terms is, itself, a NAND expression. Finally, negated single terms can be generates with a 2-input NAND gate acting as an inverted. F1= A’B’C’D’+AC’D’+B’CD’+A’BCD+BC’D
- 
-## Logic Diagram
-Using NOR gates NOR gate is actually a combination of two logic gates: OR gate followed by NOT gate. So its output is complement of the output of an OR gate. This gate can have minimum two inputs, output is always one. By using only NOR gates, we can realize all logic functions: AND, OR, NOT, Ex-OR, Ex-NOR, NAND. So this gate is also called universal gate. Designing a circuit with NOR gates only uses the same basic techniques as designing a circuit with NAND gates; that is, the application of deMorgan’s theorem. The only difference between NOR gate design and NAND gate design is that the former must eliminate product terms and the later must eliminate sum terms.
-F=(((C.B'.A)+(D.C'.A)+(C.B'.A))')'
+Adders are digital circuits that carry out addition of numbers.
+
+## Half Adder
+Half adder is a combinational circuit that performs simple addition of two binary numbers. The input variables designate the augend and addend bits; the output variables produce the sum and carry. It is necessary to specify two output variables because the result may consist of two binary digits.
+Sum = A’B+AB’ =A ⊕ B Carry = AB
+
+## Full Adder
+Full adder is a digital circuit used to calculate the sum of three binary bits. It consists of three inputs and two outputs. Two of the input variables, denoted by A and B, represent the two significant bits to be added. The third input, Cin, represents the carry from the previous lower significant position. Two outputs are necessary because the arithmetic sum of three binary digits ranges in value from 0 to 3, and binary 2 or 3 needs two digits. The two outputs are sum and carry.
+Sum =A’B’Cin + A’BCin’ + ABCin + AB’Cin’ = A ⊕ B ⊕ Cin Carry = AB + ACin + BCin
 ## Procedure
-1.Create a project with required entities.
-2.Create a module along with respective file name.
-3.Run the respective programs for the given boolean equations. 
-4.Run the module and get the respective RTL outputs.
-5.Create university program(VWF) for getting timing diagram.
-6.Give the respective inputs for timing diagram and obtain the results.
+Connect the supply (+5V) to the circuit Switch ON the main switch If the output is 1, then the led glows.
 ## Program
 ```
-module ex02(A,B,C,D,F1);
- input A,B,C,D; output F1;
- wire x1,x2,x3,x4,x5;
- assign x1=(~A)&(~B)&(~C)&(~D);
-assign x2=(A)&(~C)&(~D);
-assign x3=(~B)&(C)&(~D);
- assign x4=(~A)&(B)&(C)&(D);
-assign x5=(B)&(~C)&(D);
-assign F1=x1|x2|x3|x4|x5;
+Program to design a half adder and full adder circuit and verify its truth table in quartus using Verilog programming.
+
+1. HALF ADDER
+module adder (a,b,sum,carry);
+input a,b;
+output sum,carry;
+assign sum = (a^b);
+assign carry = (a&b);
+endmodule
+
+2. FULL ADDER
+module fulladder(a,b,cin,sum,carry);
+input a,b,cin;
+output sum,carry;
+assign sum= a^b^cin;
+assign carry = (a&b)|((a^b)&cin);
 endmodule
 ``` 
 
-## Output
 ## RTL
-![image](https://github.com/swathidd/Experiment--02-Implementation-of-combinational-logic-/assets/121300272/57f4d145-ab6a-4c06-8c4d-07391f5ac0a5)
+![image](https://github.com/swathidd/Experiment--02-Implementation-of-combinational-logic-/assets/121300272/f1f61304-aaa1-48d8-889e-24967bed81f4)
 
-## Timing Diagram
-![image](https://github.com/swathidd/Experiment--02-Implementation-of-combinational-logic-/assets/121300272/48e3a2a1-49f0-4365-b36a-b929b0ba5455)
+![image](https://github.com/swathidd/Experiment--02-Implementation-of-combinational-logic-/assets/121300272/b0e1a37d-18d1-4b08-aeda-6a766fb9cadb)
+
+
+## Output
+![image](https://github.com/swathidd/Experiment--02-Implementation-of-combinational-logic-/assets/121300272/13e8ad8e-b9ad-41a4-8931-204cb1eaf786)
+
+![image](https://github.com/swathidd/Experiment--02-Implementation-of-combinational-logic-/assets/121300272/6303f7ba-72b6-482c-93e9-79ae9484c5c7)
+
 
 ## Result
 Thus the given logic functions are implemented using  and their operations are verified using Verilog programming.

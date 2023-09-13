@@ -52,7 +52,7 @@ assign f1=x1|x2|x3|x4|x5;
 endmodule
 ```
 # Output:
-RTL realization
+# RTL realization
 ![image](https://github.com/swathidd/Experiment--02-Implementation-of-combinational-logic-/assets/121300272/d7cbaa2e-0fe1-4151-a79d-7139b8f357d7)
 
 # Truth table

@@ -51,4 +51,18 @@ assign x5=(b)&(~c)&(d);
 assign f1=x1|x2|x3|x4|x5;
 endmodule
 ```
-Output:
+# Output:
+RTL realization
+![image](https://github.com/swathidd/Experiment--02-Implementation-of-combinational-logic-/assets/121300272/d7cbaa2e-0fe1-4151-a79d-7139b8f357d7)
+
+# Truth table
+![image](https://github.com/swathidd/Experiment--02-Implementation-of-combinational-logic-/assets/121300272/4bc17bff-6cba-4037-894e-e6dcdb69f131)
+
+# waveform
+![image](https://github.com/swathidd/Experiment--02-Implementation-of-combinational-logic-/assets/121300272/f8e8c841-b91e-4f4e-ad75-93e7d9732e29)
+
+# Result:
+Thus the given logic functions are implemented using and their operations are verified using Verilog programming.
+
+
+
